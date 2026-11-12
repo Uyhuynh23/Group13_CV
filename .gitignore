@@ -1,0 +1,30 @@
+# OS & IDE files
+.DS_Store
+.idea/
+.vscode/
+__pycache__/
+*.py[cod]
+*$py.class
+*.ipynb_checkpoints/
+
+# Dataset images & raw archives (Do not redistribute per Section IX Ethical Considerations)
+data/coco/train2014/
+data/coco/val2014/
+data/coco/annotations/
+data/flickr8k/Flicker8k_Dataset/
+data/flickr8k/images/
+data/flickr8k/text/
+data/flickr8k/*.zip
+data/flickr8k/Flickr8k.token.txt
+data/flickr8k/Flickr8k.lemma.token.txt
+data/flickr8k/CrowdFlowerAnnotations.txt
+data/flickr8k/ExpertAnnotations.txt
+
+# Cached CLIP features & model checkpoints
+data/flickr8k/cache/
+checkpoints/
+results/
+*.pt
+*.pth
+*.pkl
+!data/flickr8k/splits/*.txt

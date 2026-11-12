@@ -1,4 +1,38 @@
-# CLIP prefix captioning.
+# A Controlled Evaluation of Patch-Preserving and Query-Resampling Connectors for Resource-Constrained Image Captioning (Group 13)
+
+**Authors:** Huỳnh Trần Uy (23125047), Trần Mỹ An (23125049), Nguyễn Hoàng Gia Hân (23125055)  
+**Colab Runner Notebook:** `notebooks/colab_flickr8k_baseline.ipynb`
+
+## Quick Start (Google Colab + Google Drive + GitHub Workflow)
+
+1. **Push local changes to GitHub:**
+   ```bash
+   git add .
+   git commit -m "Setup Flickr8k baseline pipeline and Colab runner"
+   git push origin main
+   ```
+2. **Run on Google Colab (Free Tesla T4 GPU):**
+   - Open `notebooks/colab_flickr8k_baseline.ipynb` in Google Colab (via **File → Open notebook → GitHub** and paste `https://github.com/Uyhuynh23/Group13_CV`).
+   - Set Runtime to **T4 GPU** (**Runtime → Change runtime type → T4 GPU**).
+   - Run the cells in order:
+     - **Step 1:** Mounts your Google Drive (`/content/drive/MyDrive/Group13_CV_Data`).
+     - **Step 2:** Clones/pulls this GitHub repository and installs `requirements.txt`.
+     - **Step 3:** Automatically downloads Flickr8k (`download_flickr8k.py`) into your Google Drive and caches frozen CLIP ViT-B/32 features (`parse_flickr8k.py`) in FP16 (`train_cache.pt`, `val_cache.pt`, `test_cache.pt`).
+     - **Step 4:** Trains the Global-Feature Linear Sanity Baseline (`train_flickr8k.py`) and saves the best checkpoint (by Validation CIDEr) to Google Drive.
+     - **Step 5:** Evaluates on the 1,000 Flickr8k test images (`evaluate.py`) with deterministic beam search (`beam_size=5`) and greedy decoding (`beam_size=1`), reporting **CIDEr, BLEU-1, BLEU-4, METEOR, ROUGE-L**, decoding latency (`ms/image`), and `tokens/sec`.
+
+## Repository Structure (Flickr8k Pipeline)
+- `download_flickr8k.py`: Automated downloader & verifier for `Flickr8k_Dataset.zip` and `Flickr8k_text.zip`.
+- `parse_flickr8k.py`: Extracts & caches frozen CLIP ViT-B/32 `global_features` (`[N, 512]` FP16) and `patch_features` (`[N, 49, 768]` FP16, with CLS token removed and `ln_post` applied) for the standard 6,000 / 1,000 / 1,000 split.
+- `dataset.py`: PyTorch datasets (`Flickr8kCachedDataset`, `Flickr8kEvalDataset`) with GPT-2 tokenization, `<|endoftext|>` EOS handling, and `-100` padding loss mask.
+- `models.py`: Frozen GPT-2 Small decoder + trainable baseline connectors (`GlobalLinearConnector` sanity baseline and `ClipCapMLPConnector`), plus deterministic Beam Search & Greedy Decoding.
+- `train_flickr8k.py`: Mixed-precision (AMP) training loop with AdamW, linear warmup, gradient clipping, validation CIDEr checkpointing, early stopping, and VRAM/time efficiency logging.
+- `evaluate.py`: Standalone evaluation pipeline for CIDEr, BLEU-1..4, METEOR, ROUGE-L, optional SPICE & CLIPScore (`ViT-B/16`), and T4 decoding latency measurements.
+- `data/flickr8k/splits/`: Official Flickr8k split identifier lists (`Flickr_8k.trainImages.txt`, `Flickr_8k.devImages.txt`, `Flickr_8k.testImages.txt`).
+
+---
+
+# Original Fork Reference: CLIP prefix captioning.
 
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>  
 Inference Notebook: <a href="https://colab.research.google.com/drive/1tuoAC5F4sC7qid56Z0ap-stR3rwdk0ZV?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" height=20></a>  
