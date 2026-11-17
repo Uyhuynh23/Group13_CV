@@ -107,6 +107,10 @@ def main():
     )
     parser.add_argument("--seed", type=int, default=42, help="Random seed for reproducibility.")
     parser.add_argument("--no_amp", action="store_true", help="Disable FP16 mixed-precision training.")
+    parser.add_argument("--use_lora", action="store_true", help="Enable LoRA adaptation on GPT-2 c_attn (Conditions C & D).")
+    parser.add_argument("--lora_r", type=int, default=8, help="LoRA rank r (Proposal Section IV.D: 8).")
+    parser.add_argument("--lora_alpha", type=int, default=16, help="LoRA scaling alpha (Proposal Section IV.D: 16).")
+    parser.add_argument("--lora_dropout", type=float, default=0.05, help="LoRA dropout (Proposal Section IV.D: 0.05).")
     args = parser.parse_args()
 
     default_prefix_lengths = {
@@ -127,18 +131,24 @@ def main():
     print("=" * 65)
     print(f" TRAINING FLICKR8K MODEL: {args.run_name}")
     print(f" Device: {device} | Mixed Precision (AMP): {use_amp} | Seed: {args.seed}")
-    print(f" Connector: {args.connector_type} | Visual Prefix Length: {args.prefix_length}")
+    print(f" Connector: {args.connector_type} | Visual Prefix Length: {args.prefix_length} | LoRA: {args.use_lora}")
     print("=" * 65)
 
     model = CaptionBaselineModel(
         connector_type=args.connector_type,
         prefix_length=args.prefix_length,
+        use_lora=args.use_lora,
+        lora_r=args.lora_r,
+        lora_alpha=args.lora_alpha,
+        lora_dropout=args.lora_dropout,
     ).to(device)
     args.prefix_length = model.prefix_length
 
     param_info = count_parameters(model)
     print(
-        f" Trainable Parameters : {param_info['trainable_parameters']:,}\n"
+        f" Trainable Parameters : {param_info['trainable_parameters']:,} "
+        f"(Connector: {param_info['connector_trainable_parameters']:,}, "
+        f"GPT-2 LoRA: {param_info['gpt2_trainable_parameters']:,})\n"
         f" Frozen GPT-2 Params  : {param_info['gpt2_frozen_parameters']:,}\n"
         f" Total Parameters     : {param_info['total_parameters']:,}"
     )

@@ -214,15 +214,33 @@ class CaptionBaselineModel(nn.Module):
         patch_dim: int = 768,
         gpt2_type: str = "gpt2",
         freeze_gpt2: bool = True,
+        use_lora: bool = False,
+        lora_r: int = 8,
+        lora_alpha: int = 16,
+        lora_dropout: float = 0.05,
     ):
         super().__init__()
         self.connector_type = connector_type
-        self.freeze_gpt2 = freeze_gpt2
+        self.use_lora = use_lora
+        self.freeze_gpt2 = freeze_gpt2 and (not use_lora)
 
         self.gpt = GPT2LMHeadModel.from_pretrained(gpt2_type)
         self.gpt_embedding_size = self.gpt.transformer.wte.weight.shape[1]  # 768
 
-        if freeze_gpt2:
+        if use_lora:
+            from peft import LoraConfig, TaskType, get_peft_model
+
+            lora_config = LoraConfig(
+                task_type=TaskType.CAUSAL_LM,
+                r=lora_r,
+                lora_alpha=lora_alpha,
+                lora_dropout=lora_dropout,
+                target_modules=["c_attn"],
+                fan_in_fan_out=True,
+                bias="none",
+            )
+            self.gpt = get_peft_model(self.gpt, lora_config)
+        elif self.freeze_gpt2:
             for param in self.gpt.parameters():
                 param.requires_grad = False
             self.gpt.eval()
@@ -294,7 +312,7 @@ class CaptionBaselineModel(nn.Module):
             (logits, loss) where logits has shape [B, L, vocab_size] corresponding to caption predictions.
         """
         prefix_embeds = self.encode_visual_prefix(visual_features)  # [B, P, 768]
-        text_embeds = self.gpt.transformer.wte(tokens)  # [B, L, 768]
+        text_embeds = self.gpt.get_input_embeddings()(tokens)  # [B, L, 768]
         inputs_embeds = torch.cat([prefix_embeds, text_embeds], dim=1)  # [B, P + L, 768]
 
         outputs = self.gpt(inputs_embeds=inputs_embeds, attention_mask=mask)
@@ -384,7 +402,7 @@ class CaptionBaselineModel(nn.Module):
             if next_token_id == eos_id:
                 break
             generated_tokens.append(next_token_id)
-            next_embed = self.gpt.transformer.wte(
+            next_embed = self.gpt.get_input_embeddings()(
                 torch.tensor([[next_token_id]], dtype=torch.long, device=prefix_embed.device)
             )
             generated_embeds = torch.cat([generated_embeds, next_embed], dim=1)
@@ -413,7 +431,7 @@ class CaptionBaselineModel(nn.Module):
             if tid == eos_id:
                 beams.append((score, [], prefix_embed, True))
             else:
-                tok_embed = self.gpt.transformer.wte(torch.tensor([[tid]], dtype=torch.long, device=device))
+                tok_embed = self.gpt.get_input_embeddings()(torch.tensor([[tid]], dtype=torch.long, device=device))
                 beams.append((score, [tid], torch.cat([prefix_embed, tok_embed], dim=1), False))
 
         for _ in range(1, max_new_tokens):
@@ -457,7 +475,7 @@ class CaptionBaselineModel(nn.Module):
                     new_beams.append((raw_s, toks, emb, True))
                 else:
                     tid = state
-                    tok_embed = self.gpt.transformer.wte(
+                    tok_embed = self.gpt.get_input_embeddings()(
                         torch.tensor([[tid]], dtype=torch.long, device=device)
                     )
                     new_beams.append((raw_s, toks, torch.cat([emb, tok_embed], dim=1), False))

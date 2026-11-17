@@ -320,10 +320,18 @@ def main():
     connector_type = ckpt_args.get("connector_type", "global_linear")
     prefix_length = ckpt_args.get("prefix_length", 1)
     normalize_prefix = ckpt_args.get("normalize_prefix", False)
+    use_lora = ckpt_args.get("use_lora", False)
+    lora_r = ckpt_args.get("lora_r", 8)
+    lora_alpha = ckpt_args.get("lora_alpha", 16)
+    lora_dropout = ckpt_args.get("lora_dropout", 0.05)
 
     model = CaptionBaselineModel(
         connector_type=connector_type,
         prefix_length=prefix_length,
+        use_lora=use_lora,
+        lora_r=lora_r,
+        lora_alpha=lora_alpha,
+        lora_dropout=lora_dropout,
     )
     model.load_state_dict(ckpt["model_state_dict"])
     model.to(device)
