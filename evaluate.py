@@ -94,17 +94,52 @@ def compute_caption_metrics(
     cider_score, _ = cider_scorer.compute_score(gts, res)
     metrics["CIDEr"] = float(cider_score * 100.0)
 
-    # 4. METEOR (requires Java)
-    if compute_meteor and has_java:
-        try:
-            from pycocoevalcap.meteor.meteor import Meteor
+    # 4. METEOR (uses pycocoevalcap Java METEOR with safe lock cleanup + NLTK fallback)
+    if compute_meteor:
+        meteor_computed = False
+        if has_java:
+            meteor_scorer = None
+            try:
+                from pycocoevalcap.meteor.meteor import Meteor
 
-            meteor_scorer = Meteor()
-            meteor_score, _ = meteor_scorer.compute_score(gts, res)
-            metrics["METEOR"] = float(meteor_score * 100.0)
-            meteor_scorer.close()
-        except Exception as e:
-            print(f"[WARN] METEOR computation skipped: {e}")
+                gts_safe = {k: [c if c.strip() else "." for c in v] for k, v in gts.items()}
+                res_safe = {k: [c if c.strip() else "." for c in v] for k, v in res.items()}
+                meteor_scorer = Meteor()
+                meteor_score, _ = meteor_scorer.compute_score(gts_safe, res_safe)
+                metrics["METEOR"] = float(meteor_score * 100.0)
+                meteor_computed = True
+            except Exception as e:
+                print(f"[WARN] Java METEOR failed ({e}); falling back to NLTK METEOR.")
+            finally:
+                if meteor_scorer is not None:
+                    try:
+                        if getattr(meteor_scorer, "lock", None) is not None and meteor_scorer.lock.locked():
+                            meteor_scorer.lock.release()
+                    except Exception:
+                        pass
+                    try:
+                        if getattr(meteor_scorer, "meteor_p", None) is not None:
+                            meteor_scorer.meteor_p.kill()
+                            meteor_scorer.meteor_p.wait(timeout=2)
+                    except Exception:
+                        pass
+                    meteor_scorer.__del__ = lambda *a, **kw: None
+
+        if not meteor_computed:
+            try:
+                import nltk
+                from nltk.translate.meteor_score import meteor_score as nltk_meteor
+
+                nltk.download("wordnet", quiet=True)
+                nltk.download("omw-1.4", quiet=True)
+                scores_m = []
+                for k in predictions:
+                    ref_toks = [_clean_text(r).split() for r in references[k]]
+                    hyp_toks = _clean_text(predictions[k]).split() or ["."]
+                    scores_m.append(nltk_meteor(ref_toks, hyp_toks))
+                metrics["METEOR"] = float(sum(scores_m) / max(len(scores_m), 1) * 100.0)
+            except Exception as e:
+                print(f"[WARN] NLTK METEOR fallback skipped: {e}")
 
     # 5. SPICE (optional, requires Java)
     if compute_spice and has_java:

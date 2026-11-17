@@ -81,14 +81,14 @@ def main():
         "--connector_type",
         type=str,
         default="global_linear",
-        choices=["global_linear", "clipcap_mlp"],
-        help="Baseline connector architecture ('global_linear' sanity baseline or 'clipcap_mlp').",
+        choices=["global_linear", "clipcap_mlp", "patch_mlp", "query_resampler"],
+        help="Connector architecture: 'global_linear', 'clipcap_mlp', 'patch_mlp' (Cond A), or 'query_resampler' (Cond B).",
     )
     parser.add_argument(
         "--prefix_length",
         type=int,
-        default=1,
-        help="Number of visual prefix tokens (1 for global_linear sanity baseline, 10 for clipcap_mlp).",
+        default=None,
+        help="Number of visual prefix tokens (defaults: 1 for global_linear, 10 for clipcap_mlp, 49 for patch_mlp, 16 for query_resampler).",
     )
     parser.add_argument("--max_seq_len", type=int, default=40, help="Maximum caption token length.")
     parser.add_argument("--normalize_prefix", action="store_true", help="L2-normalize CLIP features.")
@@ -109,6 +109,15 @@ def main():
     parser.add_argument("--no_amp", action="store_true", help="Disable FP16 mixed-precision training.")
     args = parser.parse_args()
 
+    default_prefix_lengths = {
+        "global_linear": 1,
+        "clipcap_mlp": 10,
+        "patch_mlp": 49,
+        "query_resampler": 16,
+    }
+    if args.prefix_length is None:
+        args.prefix_length = default_prefix_lengths[args.connector_type]
+
     set_seed(args.seed)
     os.makedirs(args.out_dir, exist_ok=True)
 
@@ -116,7 +125,7 @@ def main():
     use_amp = (device.type == "cuda") and (not args.no_amp)
 
     print("=" * 65)
-    print(f" TRAINING FLICKR8K BASELINE: {args.run_name}")
+    print(f" TRAINING FLICKR8K MODEL: {args.run_name}")
     print(f" Device: {device} | Mixed Precision (AMP): {use_amp} | Seed: {args.seed}")
     print(f" Connector: {args.connector_type} | Visual Prefix Length: {args.prefix_length}")
     print("=" * 65)
@@ -125,6 +134,7 @@ def main():
         connector_type=args.connector_type,
         prefix_length=args.prefix_length,
     ).to(device)
+    args.prefix_length = model.prefix_length
 
     param_info = count_parameters(model)
     print(
