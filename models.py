@@ -228,7 +228,16 @@ class CaptionBaselineModel(nn.Module):
         self.gpt_embedding_size = self.gpt.transformer.wte.weight.shape[1]  # 768
 
         if use_lora:
+            import peft.import_utils
             from peft import LoraConfig, TaskType, get_peft_model
+
+            # Guard against Colab's pre-installed older torchao (e.g. 0.10.0) breaking PEFT's dispatcher
+            peft.import_utils.is_torchao_available = lambda: False
+            try:
+                import peft.tuners.lora.torchao as _peft_torchao
+                _peft_torchao.is_torchao_available = lambda: False
+            except Exception:
+                pass
 
             lora_config = LoraConfig(
                 task_type=TaskType.CAUSAL_LM,
