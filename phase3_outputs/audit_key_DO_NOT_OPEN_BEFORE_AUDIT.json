@@ -1,0 +1,2006 @@
+{
+  "rome_100": [
+    {
+      "index": 1,
+      "image_id": "1119015538_e8e796281e.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 2,
+      "image_id": "1282392036_5a0328eb86.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 3,
+      "image_id": "1287475186_2dee85f1a5.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 4,
+      "image_id": "1317292658_ba29330a0b.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 5,
+      "image_id": "132489044_3be606baf7.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 6,
+      "image_id": "138718600_f430ebca17.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 7,
+      "image_id": "1389264266_8170bc1c54.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 8,
+      "image_id": "1523984678_edd68464da.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 9,
+      "image_id": "1626754053_81126b67b6.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 10,
+      "image_id": "1659358141_0433c9bf99.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 11,
+      "image_id": "1764955991_5e53a28c87.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 12,
+      "image_id": "180094434_b0f244832d.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 13,
+      "image_id": "180506881_de0f59770f.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 14,
+      "image_id": "189721896_1ffe76d89e.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condC",
+        "Model_3": "condA",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 15,
+      "image_id": "197107117_4b438b1872.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condC",
+        "Model_3": "condD",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 16,
+      "image_id": "197504190_fd1fc3d4b7.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 17,
+      "image_id": "2064790732_219e52e19c.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 18,
+      "image_id": "2102360862_264452db8e.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 19,
+      "image_id": "2170222061_e8bce4a32d.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 20,
+      "image_id": "2208067635_39a03834ca.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 21,
+      "image_id": "2218609886_892dcd6915.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 22,
+      "image_id": "2228022180_9597b2a458.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 23,
+      "image_id": "2309860995_c2e2a0feeb.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 24,
+      "image_id": "2343525685_3eba3b6686.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 25,
+      "image_id": "2378149488_648e5deeac.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 26,
+      "image_id": "241031254_0c6f30e3d1.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 27,
+      "image_id": "241345844_69e1c22464.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condC",
+        "Model_3": "condA",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 28,
+      "image_id": "241346508_0b3907a95b.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 29,
+      "image_id": "241347760_d44c8d3a01.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condC",
+        "Model_3": "condD",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 30,
+      "image_id": "2431470169_0eeba7d602.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 31,
+      "image_id": "2445283938_ff477c7952.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 32,
+      "image_id": "2470486377_c3a39ccb7b.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 33,
+      "image_id": "2501595799_6316001e89.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 34,
+      "image_id": "2529116152_4331dabf50.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 35,
+      "image_id": "2534502836_7a75305655.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 36,
+      "image_id": "256085101_2c2617c5d0.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 37,
+      "image_id": "2581066814_179d28f306.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condC",
+        "Model_3": "condD",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 38,
+      "image_id": "2683963310_20dcd5e566.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 39,
+      "image_id": "2698666984_13e17236ae.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 40,
+      "image_id": "2707873672_15e6b5d54b.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condC",
+        "Model_3": "condD",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 41,
+      "image_id": "2739331794_4ae78f69a0.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condA",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 42,
+      "image_id": "2762301555_48a0d0aa24.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 43,
+      "image_id": "2774430374_fee1d793e7.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condB",
+        "Model_3": "condD",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 44,
+      "image_id": "2788945468_74a9618cfa.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 45,
+      "image_id": "2813033949_e19fa08805.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 46,
+      "image_id": "2843695880_eeea6c67db.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condC",
+        "Model_3": "condA",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 47,
+      "image_id": "2844641033_dab3715a99.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 48,
+      "image_id": "2924259848_effb4dcb82.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 49,
+      "image_id": "2928152792_b16c73434a.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 50,
+      "image_id": "2991994415_504d1c0a03.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condB",
+        "Model_3": "condD",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 51,
+      "image_id": "3003691049_f4363c2d5c.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 52,
+      "image_id": "3009644534_992e9ea2a7.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 53,
+      "image_id": "3108732084_565b423162.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 54,
+      "image_id": "3162045919_c2decbb69b.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 55,
+      "image_id": "3185371756_ff4e9fa8a6.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 56,
+      "image_id": "3192069971_83c5a90b4c.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 57,
+      "image_id": "3208074567_ac44aeb3f3.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condC",
+        "Model_3": "condD",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 58,
+      "image_id": "3222055946_45f7293bb2.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 59,
+      "image_id": "324208502_674488bcea.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 60,
+      "image_id": "3243588540_b418ac7eda.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 61,
+      "image_id": "3255482333_5bcee79f7e.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 62,
+      "image_id": "3256275785_9c3af57576.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 63,
+      "image_id": "3286822339_5535af6b93.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 64,
+      "image_id": "3315616181_15dd137e27.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condA",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 65,
+      "image_id": "3328646934_5cca4cebce.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 66,
+      "image_id": "3339140382_2e49bc324a.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 67,
+      "image_id": "3358682439_be4b83544c.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 68,
+      "image_id": "3375991133_87d7c40925.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condA",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 69,
+      "image_id": "3396157719_6807d52a81.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 70,
+      "image_id": "3411393875_a9ff73c67a.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 71,
+      "image_id": "3450874870_c4dcf58fb3.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 72,
+      "image_id": "3457045393_2bbbb4e941.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 73,
+      "image_id": "3459156091_c1879ebe28.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 74,
+      "image_id": "3482062809_3b694322c4.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 75,
+      "image_id": "3502993968_4ee36afb0e.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 76,
+      "image_id": "3507076266_8b17993fbb.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 77,
+      "image_id": "3518126579_e70e0cbb2b.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 78,
+      "image_id": "3521374954_37371b49a4.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 79,
+      "image_id": "3545652636_0746537307.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condB",
+        "Model_3": "condD",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 80,
+      "image_id": "3556598205_86c180769d.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 81,
+      "image_id": "3571147934_d1c8af1d6e.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 82,
+      "image_id": "3627011534_485f667b10.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 83,
+      "image_id": "3630332976_fdba22c50b.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 84,
+      "image_id": "3631986552_944ea208fc.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 85,
+      "image_id": "3692892751_f6574e2700.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 86,
+      "image_id": "3697359692_8a5cdbe4fe.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 87,
+      "image_id": "373394550_1b2296b8c4.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 88,
+      "image_id": "387830531_e89c192b92.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 89,
+      "image_id": "410453140_5401bf659a.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 90,
+      "image_id": "421322723_3470543368.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 91,
+      "image_id": "424416723_19c56cb365.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 92,
+      "image_id": "463978865_c87c6ca84c.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 93,
+      "image_id": "473220329_819a913bbb.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condC",
+        "Model_3": "condD",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 94,
+      "image_id": "533483374_86c5d4c13e.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 95,
+      "image_id": "539751252_2bd88c456b.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condC",
+        "Model_3": "condA",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 96,
+      "image_id": "56489627_e1de43de34.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 97,
+      "image_id": "757046028_ff5999f91b.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 98,
+      "image_id": "791338571_7f38510bf7.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 99,
+      "image_id": "820169182_f5e78d7d19.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condA",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 100,
+      "image_id": "888425986_e4b6c12324.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    }
+  ],
+  "complex_100": [
+    {
+      "index": 1,
+      "image_id": "2894217628_f1a4153dca.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 2,
+      "image_id": "2435685480_a79d42e564.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 3,
+      "image_id": "1343426964_cde3fb54e8.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 4,
+      "image_id": "191003285_edd8d0cf58.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 5,
+      "image_id": "2666205903_8d287669e1.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 6,
+      "image_id": "3062173277_bfb5ef4c45.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 7,
+      "image_id": "3220161734_77f42734b9.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condA",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 8,
+      "image_id": "3558370311_5734a15890.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 9,
+      "image_id": "1584315962_5b0b45d02d.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 10,
+      "image_id": "2182488373_df73c7cc09.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 11,
+      "image_id": "2484190118_e89363c465.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condB",
+        "Model_3": "condD",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 12,
+      "image_id": "2646046871_c3a5dbb971.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 13,
+      "image_id": "2652522323_9218afd8c2.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condB",
+        "Model_3": "condD",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 14,
+      "image_id": "2944952557_8484f0da8f.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condB",
+        "Model_3": "condD",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 15,
+      "image_id": "3287549827_04dec6fb6e.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 16,
+      "image_id": "3458559770_12cf9f134e.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 17,
+      "image_id": "3471841031_a949645ba8.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 18,
+      "image_id": "370614351_98b8a166b9.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 19,
+      "image_id": "444481722_690d0cadcf.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 20,
+      "image_id": "114051287_dd85625a04.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condB",
+        "Model_3": "condD",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 21,
+      "image_id": "1427391496_ea512cbe7f.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 22,
+      "image_id": "1765164972_92dac06fa9.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condB",
+        "Model_3": "condD",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 23,
+      "image_id": "2049051050_20359a434a.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 24,
+      "image_id": "2289068031_fe26990183.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 25,
+      "image_id": "2649406158_ded6be38de.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 26,
+      "image_id": "2689001252_e0016c89f0.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 27,
+      "image_id": "2813992915_f732cf8539.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 28,
+      "image_id": "3024172109_a10198e1dd.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 29,
+      "image_id": "3203453897_6317aac6ff.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 30,
+      "image_id": "3393926562_66cc01b001.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 31,
+      "image_id": "3424424006_98f9d1921c.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 32,
+      "image_id": "3514179514_cbc3371b92.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condB",
+        "Model_3": "condD",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 33,
+      "image_id": "3516825206_5750824874.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condB",
+        "Model_3": "condD",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 34,
+      "image_id": "405615014_03be7ef618.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condA",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 35,
+      "image_id": "510531976_90bbee22a2.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condC",
+        "Model_3": "condD",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 36,
+      "image_id": "127488876_f2d2a89588.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 37,
+      "image_id": "1298295313_db1f4c6522.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 38,
+      "image_id": "136552115_6dc3e7231c.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 39,
+      "image_id": "1394368714_3bc7c19969.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condA",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 40,
+      "image_id": "1962729184_6996e128e7.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 41,
+      "image_id": "1998457059_c9ac9a1e1a.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 42,
+      "image_id": "2083434441_a93bc6306b.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 43,
+      "image_id": "2215136723_960edfea49.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 44,
+      "image_id": "2247889670_413db8094b.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 45,
+      "image_id": "2447284966_d6bbdb4b6e.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 46,
+      "image_id": "2682382530_f9f8fd1e89.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 47,
+      "image_id": "2683963310_20dcd5e566.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 48,
+      "image_id": "2718024196_3ff660416a.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condB",
+        "Model_3": "condD",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 49,
+      "image_id": "2764178773_d63b502812.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 50,
+      "image_id": "2928152792_b16c73434a.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 51,
+      "image_id": "2966552760_e65b22cd26.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 52,
+      "image_id": "3121521593_18f0ec14f7.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 53,
+      "image_id": "3143982558_9e2d44c155.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condA",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 54,
+      "image_id": "3218480482_66af7587c8.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 55,
+      "image_id": "3259991972_fce3ab18b2.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 56,
+      "image_id": "3263395801_5e4cee2b9e.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 57,
+      "image_id": "3316725440_9ccd9b5417.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condC",
+        "Model_3": "condA",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 58,
+      "image_id": "3328646934_5cca4cebce.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 59,
+      "image_id": "3349451628_4249a21c8f.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 60,
+      "image_id": "3364026240_645d533fda.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 61,
+      "image_id": "3485425825_c2f3446e73.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 62,
+      "image_id": "3502993968_4ee36afb0e.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 63,
+      "image_id": "3564312955_716e86c48b.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 64,
+      "image_id": "3565598162_56044bc2f7.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 65,
+      "image_id": "3568197730_a071d7595b.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 66,
+      "image_id": "3591458156_f1a9a33918.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 67,
+      "image_id": "3655074079_7df3812bc5.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 68,
+      "image_id": "3692593096_fbaea67476.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 69,
+      "image_id": "3696698390_989f1488e7.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 70,
+      "image_id": "3702436188_2c26192fd0.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 71,
+      "image_id": "524105255_b346f288be.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 72,
+      "image_id": "534875358_6ea30d3091.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 73,
+      "image_id": "1258913059_07c613f7ff.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 74,
+      "image_id": "1329832826_432538d331.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condD",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 75,
+      "image_id": "1386964743_9e80d96b05.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 76,
+      "image_id": "1389264266_8170bc1c54.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condC",
+        "Model_3": "condD",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 77,
+      "image_id": "1773928579_5664a810dc.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 78,
+      "image_id": "2208310655_a3d83080c5.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 79,
+      "image_id": "2218609886_892dcd6915.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 80,
+      "image_id": "2248487950_c62d0c81a9.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 81,
+      "image_id": "2274992140_bb9e868bb8.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 82,
+      "image_id": "241345844_69e1c22464.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condA",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 83,
+      "image_id": "241346971_c100650320.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 84,
+      "image_id": "241347760_d44c8d3a01.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 85,
+      "image_id": "2533424347_cf2f84872b.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 86,
+      "image_id": "2731171552_4a808c7d5a.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 87,
+      "image_id": "2735558076_0d7bbc18fc.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condD",
+        "Model_3": "condC",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 88,
+      "image_id": "2830869109_c4e403eae6.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condB",
+        "Model_3": "condD",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 89,
+      "image_id": "2831217847_555b2f95ca.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 90,
+      "image_id": "2842865689_e37256d9ce.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 91,
+      "image_id": "2866254827_9a8f592017.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 92,
+      "image_id": "2926595608_69b22be8d4.jpg",
+      "mapping": {
+        "Model_1": "condB",
+        "Model_2": "condA",
+        "Model_3": "condC",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 93,
+      "image_id": "2934359101_cdf57442dc.jpg",
+      "mapping": {
+        "Model_1": "condC",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 94,
+      "image_id": "3027397797_4f1d305ced.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condD"
+      }
+    },
+    {
+      "index": 95,
+      "image_id": "3047264346_e24601bfbf.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condA",
+        "Model_3": "condB",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 96,
+      "image_id": "3072114570_e1c0127529.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condC",
+        "Model_3": "condB",
+        "Model_4": "condA"
+      }
+    },
+    {
+      "index": 97,
+      "image_id": "311146855_0b65fdb169.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    },
+    {
+      "index": 98,
+      "image_id": "3114944484_28b5bb9842.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 99,
+      "image_id": "3234401637_84e0d14414.jpg",
+      "mapping": {
+        "Model_1": "condD",
+        "Model_2": "condB",
+        "Model_3": "condA",
+        "Model_4": "condC"
+      }
+    },
+    {
+      "index": 100,
+      "image_id": "3243588540_b418ac7eda.jpg",
+      "mapping": {
+        "Model_1": "condA",
+        "Model_2": "condC",
+        "Model_3": "condD",
+        "Model_4": "condB"
+      }
+    }
+  ]
+}

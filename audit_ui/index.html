@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Group 13 — Blinded Human Audit UI (Phase 3)</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --danger: #f87171;
+      --success: #34d399;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    header h1 { font-size: 1.1rem; margin: 0; }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .btn {
+      background: var(--accent);
+      color: #0f172a;
+      border: none;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+    .btn:hover { background: var(--accent-hover); color: #fff; }
+    .btn-secondary {
+      background: #334155;
+      color: var(--text);
+    }
+    .btn-secondary:hover { background: #475569; }
+    .tabs {
+      display: flex;
+      gap: 8px;
+      padding: 12px 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .tab {
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 6px 6px 0 0;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .tab.active {
+      background: var(--card);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-bottom: none;
+    }
+    main { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
+    .setup-bar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 18px;
+      font-size: 0.85rem;
+    }
+    .setup-bar label { display: flex; flex-direction: column; gap: 4px; color: var(--muted); }
+    input[type="text"], select {
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+    .workspace {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 900px) { .workspace { grid-template-columns: 1fr; } }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .img-box {
+      width: 100%;
+      min-height: 240px;
+      background: #020617;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 8px;
+    }
+    .img-box img { max-width: 100%; max-height: 320px; object-fit: contain; }
+    .refs-list { font-size: 0.85rem; padding-left: 18px; margin: 8px 0 0; color: #cbd5e1; }
+    .refs-list li { margin-bottom: 4px; }
+    .model-card {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+    .model-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .model-slot { font-weight: 700; color: var(--accent); font-size: 0.9rem; }
+    .model-caption { font-size: 1rem; margin: 4px 0 10px; color: #f8fafc; }
+    .checks { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.85rem; }
+    .checks label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .progress-pill {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: var(--success);
+    }
+    .hidden { display: none; }
+    .kappa-box { background: #0f172a; padding: 16px; border-radius: 8px; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Group 13 — Blinded Human Audit UI (Phase 3)</h1>
+    <div class="controls">
+      <span class="progress-pill" id="progressPill">0 / 0 annotated</span>
+      <button class="btn" onclick="exportAnnotations()">Export Annotations JSON</button>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="rome" onclick="switchTab('rome')">1. ROME Hallucination Audit</div>
+    <div class="tab" data-tab="complex" onclick="switchTab('complex')">2. Complex-Scene Error Analysis</div>
+    <div class="tab" data-tab="kappa" onclick="switchTab('kappa')">3. Inter-Annotator Agreement (κ)</div>
+  </div>
+
+  <main>
+    <div id="auditView">
+      <div class="setup-bar">
+        <label>
+          Annotator ID
+          <input type="text" id="annotatorId" value="annotator_1" onchange="saveMeta()" />
+        </label>
+        <label>
+          Load Audit JSON (rome_audit_blinded.json / complex_scene_blinded.json)
+          <input type="file" id="jsonInput" accept=".json" onchange="loadAuditJson(event)" />
+        </label>
+        <label>
+          Optional: Select Flickr8k Images Folder
+          <input type="file" id="imgDirInput" webkitdirectory directory multiple onchange="loadImageFolder(event)" />
+        </label>
+      </div>
+
+      <div id="emptyState" class="panel" style="text-align:center; padding:40px;">
+        Load <code>phase3_outputs/rome_audit_blinded.json</code> or <code>phase3_outputs/complex_scene_blinded.json</code> above to begin.
+      </div>
+
+      <div id="workspace" class="workspace hidden">
+        <div class="panel">
+          <div class="nav-bar">
+            <button class="btn btn-secondary" onclick="prevItem()">← Prev</button>
+            <strong id="itemCounter">1 / 100</strong>
+            <button class="btn btn-secondary" onclick="nextItem()">Next →</button>
+          </div>
+          <div class="img-box" id="imgBox">No image folder selected.<br/>Select Flickr8k Images folder above to preview.</div>
+          <div><strong>Image ID:</strong> <code id="imgIdLabel"></code></div>
+          <div id="complexNounsBox" class="hidden" style="margin-top:6px; font-size:0.82rem; color:var(--muted);"></div>
+          <div style="margin-top:10px;"><strong>5 Reference Captions:</strong></div>
+          <ol class="refs-list" id="refsList"></ol>
+        </div>
+
+        <div class="panel">
+          <h3 id="modeTitle" style="margin-top:0;">Blinded Model Captions</h3>
+          <div id="modelsContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="kappaView" class="panel hidden">
+      <h3 style="margin-top:0;">Compute Inter-Annotator Agreement (Cohen's κ)</h3>
+      <p style="color:var(--muted); font-size:0.9rem;">Upload two exported ROME annotation JSON files (Annotator 1 and Annotator 2) to compute raw agreement and Cohen's κ.</p>
+      <div class="setup-bar">
+        <label>Annotator 1 JSON <input type="file" id="kFile1" accept=".json" /></label>
+        <label>Annotator 2 JSON <input type="file" id="kFile2" accept=".json" /></label>
+        <button class="btn" onclick="computeKappa()">Compute κ</button>
+      </div>
+      <div id="kappaResult" class="kappa-box hidden"></div>
+    </div>
+  </main>
+
+  <script>
+    let currentTab = 'rome';
+    let items = [];
+    let currentIdx = 0;
+    let imageMap = {};
+    let annotations = {};
+
+    const COMPLEX_CATS = ['Objects', 'Attributes', 'Actions', 'Counts', 'Spatial Relations'];
+
+    function storageKey() {
+      const ann = document.getElementById('annotatorId').value.trim() || 'annotator_1';
+      return `g13_audit_${currentTab}_${ann}`;
+    }
+
+    function saveMeta() {
+      const saved = localStorage.getItem(storageKey());
+      annotations = saved ? JSON.parse(saved) : {};
+      renderCurrent();
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+      document.getElementById('auditView').classList.toggle('hidden', tab === 'kappa');
+      document.getElementById('kappaView').classList.toggle('hidden', tab !== 'kappa');
+      if (tab !== 'kappa') {
+        saveMeta();
+      }
+    }
+
+    function loadImageFolder(e) {
+      imageMap = {};
+      for (const file of e.target.files) {
+        imageMap[file.name] = URL.createObjectURL(file);
+      }
+      renderCurrent();
+    }
+
+    function loadAuditJson(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        items = JSON.parse(ev.target.result);
+        currentIdx = 0;
+        const saved = localStorage.getItem(storageKey());
+        annotations = saved ? JSON.parse(saved) : {};
+        document.getElementById('emptyState').classList.add('hidden');
+        document.getElementById('workspace').classList.remove('hidden');
+        renderCurrent();
+      };
+      reader.readAsText(file);
+    }
+
+    function renderCurrent() {
+      if (!items.length) return;
+      const item = items[currentIdx];
+      document.getElementById('itemCounter').textContent = `${currentIdx + 1} / ${items.length}`;
+      document.getElementById('imgIdLabel').textContent = item.image_id;
+
+      const imgBox = document.getElementById('imgBox');
+      if (imageMap[item.image_id]) {
+        imgBox.innerHTML = `<img src="${imageMap[item.image_id]}" alt="${item.image_id}" />`;
+      } else {
+        imgBox.innerHTML = `Image <code>${item.image_id}</code> not found in selected folder.`;
+      }
+
+      const nounsBox = document.getElementById('complexNounsBox');
+      if (item.distinct_object_noun_count !== undefined) {
+        nounsBox.classList.remove('hidden');
+        nounsBox.textContent = `Distinct object nouns (${item.distinct_object_noun_count}): ${item.distinct_object_nouns.join(', ')}`;
+      } else {
+        nounsBox.classList.add('hidden');
+      }
+
+      const refsList = document.getElementById('refsList');
+      refsList.innerHTML = item.references.map(r => `<li>${r}</li>`).join('');
+
+      const annItem = annotations[item.image_id] || {};
+      const container = document.getElementById('modelsContainer');
+      container.innerHTML = '';
+
+      item.models.forEach(m => {
+        const mAnn = annItem[m.slot] || {};
+        const card = document.createElement('div');
+        card.className = 'model-card';
+
+        let controlsHtml = '';
+        if (currentTab === 'rome') {
+          const checked = mAnn.hallucination ? 'checked' : '';
+          controlsHtml = `
+            <div class="checks">
+              <label style="color:var(--danger)">
+                <input type="checkbox" ${checked} onchange="updateRome('${item.image_id}','${m.slot}', this.checked)" />
+                Unsupported Object Mention (Hallucination)
+              </label>
+            </div>`;
+        } else {
+          controlsHtml = `<div class="checks">` + COMPLEX_CATS.map(cat => {
+            const checked = (mAnn.errors && mAnn.errors[cat]) ? 'checked' : '';
+            return `<label><input type="checkbox" ${checked} onchange="updateComplex('${item.image_id}','${m.slot}','${cat}', this.checked)" /> ${cat}</label>`;
+          }).join('') + `</div>`;
+        }
+
+        card.innerHTML = `
+          <div class="model-header">
+            <span class="model-slot">${m.slot}</span>
+          </div>
+          <div class="model-caption">"${m.caption}"</div>
+          ${controlsHtml}
+        `;
+        container.appendChild(card);
+      });
+
+      const doneCount = Object.keys(annotations).length;
+      document.getElementById('progressPill').textContent = `${doneCount} / ${items.length} touched`;
+    }
+
+    function persist() {
+      localStorage.setItem(storageKey(), JSON.stringify(annotations));
+      const doneCount = Object.keys(annotations).length;
+      document.getElementById('progressPill').textContent = `${doneCount} / ${items.length} touched`;
+    }
+
+    function updateRome(imgId, slot, val) {
+      if (!annotations[imgId]) annotations[imgId] = {};
+      if (!annotations[imgId][slot]) annotations[imgId][slot] = {};
+      annotations[imgId][slot].hallucination = val;
+      persist();
+    }
+
+    function updateComplex(imgId, slot, cat, val) {
+      if (!annotations[imgId]) annotations[imgId] = {};
+      if (!annotations[imgId][slot]) annotations[imgId][slot] = { errors: {} };
+      if (!annotations[imgId][slot].errors) annotations[imgId][slot].errors = {};
+      annotations[imgId][slot].errors[cat] = val;
+      persist();
+    }
+
+    function prevItem() { if (currentIdx > 0) { currentIdx--; renderCurrent(); } }
+    function nextItem() { if (currentIdx < items.length - 1) { currentIdx++; renderCurrent(); } }
+
+    function exportAnnotations() {
+      const ann = document.getElementById('annotatorId').value.trim() || 'annotator_1';
+      const blob = new Blob([JSON.stringify({ annotator: ann, mode: currentTab, annotations }, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `annotations_${currentTab}_${ann}.json`;
+      a.click();
+    }
+
+    async function computeKappa() {
+      const f1 = document.getElementById('kFile1').files[0];
+      const f2 = document.getElementById('kFile2').files[0];
+      if (!f1 || !f2) return alert('Select both JSON files.');
+      const d1 = JSON.parse(await f1.text()).annotations;
+      const d2 = JSON.parse(await f2.text()).annotations;
+
+      let n = 0, agree = 0, a1_pos = 0, a2_pos = 0;
+      const allImgs = new Set([...Object.keys(d1), ...Object.keys(d2)]);
+      allImgs.forEach(img => {
+        ['Model_1', 'Model_2', 'Model_3', 'Model_4'].forEach(slot => {
+          const v1 = !!(d1[img]?.[slot]?.hallucination);
+          const v2 = !!(d2[img]?.[slot]?.hallucination);
+          n++;
+          if (v1 === v2) agree++;
+          if (v1) a1_pos++;
+          if (v2) a2_pos++;
+        });
+      });
+      const po = agree / n;
+      const p1 = a1_pos / n, p2 = a2_pos / n;
+      const pe = p1 * p2 + (1 - p1) * (1 - p2);
+      const kappa = pe < 1 ? (po - pe) / (1 - pe) : 1.0;
+
+      const box = document.getElementById('kappaResult');
+      box.classList.remove('hidden');
+      box.innerHTML = `<strong>Pairs evaluated:</strong> ${n}<br/><strong>Raw Agreement:</strong> ${(po * 100).toFixed(2)}%<br/><strong>Cohen's κ:</strong> ${kappa.toFixed(4)}`;
+    }
+  </script>
+</body>
+</html>
