@@ -1,0 +1,117 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{A Controlled Evaluation of Patch-Preserving and Query-Resampling Connectors for Resource-Constrained Image Captioning}
+
+\author{
+\IEEEauthorblockN{Hu\`{y}nh Tr\^{a}n Uy (23125047), Tr\^{a}n M\~{y} An (23125049), Nguy\~{e}n Ho\`{a}ng Gia H\^{a}n (23125055)}
+\IEEEauthorblockA{Advanced Program in Computer Science, VNU-HCM University of Science\\
+Computer Vision Course Project — Group 13}
+}
+
+\maketitle
+
+\begin{abstract}
+Modern vision-language systems rely on a trainable connector to translate visual features into representations usable by a language decoder. However, connector behavior under small-data and zero-budget compute constraints is less understood. We present a controlled $2 \times 2$ evaluation of two lightweight connector families for image captioning on Flickr8k: a patch-preserving two-layer multilayer perceptron (MLP, 49 visual tokens) and a learned-query cross-attention resampler (16 visual tokens, 67.3\% token reduction). Both connectors share a frozen CLIP ViT-B/32 encoder and a GPT-2 Small decoder (either frozen or adapted with LoRA, $r=8, \alpha=16$), trained across three random seeds (42, 123, 999) on a single free Google Colab Tesla T4 GPU. All four experimental conditions outperform the global-linear sanity baseline. Notably, the Query Resampler with LoRA (\texttt{condD}) achieves the highest CIDEr ($5.91 \pm 0.10$) and BLEU-4 ($5.91 \pm 0.18$), while the frozen Query Resampler (\texttt{condB}) achieves the highest BLEU-1 ($45.58 \pm 0.85$) and ROUGE-L ($30.85 \pm 0.25$), reducing peak training VRAM by $\sim$25\% and epoch time by $\sim$35\% compared to the Patch MLP. We further evaluate reference-grounded object-mention errors (ROME) and patch-occlusion fidelity ($\Delta \log p(w)$), providing reproducible evidence of quality--efficiency trade-offs in resource-constrained captioning.
+\end{abstract}
+
+\begin{IEEEkeywords}
+image captioning, vision-language connector, token compression, cross-attention, LoRA, occlusion fidelity
+\end{IEEEkeywords}
+
+\section{Introduction}
+Image captioning requires translating visual evidence into fluent, grounded natural language. Recent multimodal architectures pair a pretrained vision encoder with a pretrained language model through a trainable connector. Two dominant connector paradigms motivate this study: (1) \textbf{patch-preserving projectors} (e.g., LLaVA-1.5 \cite{liu2024improved}), which map each visual patch token independently and preserve spatial resolution at the cost of a longer decoder prefix; and (2) \textbf{query-based resamplers} (e.g., BLIP-2 Q-Former \cite{li2023blip2}), which use learned queries and cross-attention to compress visual tokens into a fixed, shorter prefix.
+
+While large-scale pretraining studies favor resamplers, their behavior when trained from scratch on a small dataset (Flickr8k, 6,000 training images) without paid compute is unclear. Rather than pursuing state-of-the-art scores, this project provides a controlled, reproducible comparison of connector design and parameter-efficient language-model adaptation (LoRA \cite{hu2022lora}) on a single free Tesla T4 GPU.
+
+\section{Methodology}
+
+\subsection{Dataset and Frozen Backbones}
+We use the standard Flickr8k split \cite{hodosh2013framing}: 6,000 training, 1,000 validation, and 1,000 test images (5 reference captions per image). Visual features are extracted once and cached in FP16 from a frozen \textbf{CLIP ViT-B/32} encoder \cite{radford2021learning} at $224 \times 224$ resolution, yielding $49 \times 768$ patch tokens per image (class token removed, post-layer-norm applied). The language decoder is \textbf{GPT-2 Small} ($124.4\text{M}$ parameters, hidden size 768) \cite{radford2019language}.
+
+\subsection{Experimental Matrix ($2 \times 2$ Design)}
+We evaluate four main conditions alongside a global-feature linear sanity baseline (\texttt{baseline\_global\_linear}, prefix length 1, 393,984 trainable parameters):
+\begin{itemize}
+    \item \textbf{Condition A (\texttt{condA\_patch\_mlp\_frozen}):} 2-layer MLP ($768 \rightarrow 768 \rightarrow 768$ with GELU) applied independently to all 49 patch tokens; GPT-2 frozen (1,181,184 trainable params).
+    \item \textbf{Condition B (\texttt{condB\_query\_resampler\_frozen}):} 16 learned queries ($d=256$), 4-head cross-attention over 49 patches, FFN ($d=512$), and linear projection to 768; GPT-2 frozen (992,768 trainable params; 67.3\% prefix reduction).
+    \item \textbf{Condition C (\texttt{condC\_patch\_mlp\_lora}):} Patch MLP + LoRA ($r=8, \alpha=16$, dropout $0.05$) on GPT-2 \texttt{c\_attn} projections (1,476,096 trainable params).
+    \item \textbf{Condition D (\texttt{condD\_query\_resampler\_lora}):} Query Resampler + LoRA on GPT-2 \texttt{c\_attn} (1,287,680 trainable params).
+\end{itemize}
+
+\subsection{Training and Evaluation Protocol}
+All models are trained with teacher forcing, next-token cross-entropy (loss on caption tokens only), AdamW ($\text{lr}=2\times 10^{-4}$), mixed precision (AMP), and early stopping on validation CIDEr across three seeds (42, 123, 999). Test evaluation uses deterministic beam search ($\text{beam}=5$) and greedy decoding ($\text{beam}=1$) on all 1,000 test images. We report CIDEr \cite{vedantam2015cider}, BLEU-1..4, ROUGE-L, METEOR, and reference-free CLIPScore (\texttt{ViT-B/16}) \cite{hessel2021clipscore}, plus paired bootstrap resampling (1,000 iterations) for 95\% confidence intervals.
+
+\section{Results and Analysis}
+
+\subsection{Caption Quality (Beam Search, $N=1000$)}
+Table~\ref{tab:main_results} summarizes test-set performance (mean $\pm$ std across 3 seeds). All four conditions outperform the global-linear baseline. \texttt{condD} achieves the highest CIDEr ($5.91 \pm 0.10$) and BLEU-4 ($5.91 \pm 0.18$), while \texttt{condB} achieves the highest BLEU-1 ($45.58 \pm 0.85$) and ROUGE-L ($30.85 \pm 0.25$). Paired bootstrap resampling confirms that adding LoRA to the Query Resampler (\texttt{condD} vs. \texttt{condB}) yields a statistically significant improvement in sentence-level BLEU-4 ($+0.882$, 95\% CI $[+0.369, +1.422]$, $p=0.0040$) and ROUGE-L ($+1.034$, $[+0.549, +1.493]$).
+
+\begin{table}[t]
+\centering
+\caption{Test-Set Caption Quality (Beam=5, Mean $\pm$ Std across 3 Seeds)}
+\label{tab:main_results}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Condition} & \textbf{B-1} & \textbf{B-4} & \textbf{ROUGE-L} & \textbf{CIDEr} & \textbf{METEOR} & \textbf{CLIPScore} \\
+\midrule
+Baseline (n=1) & 40.67 & 4.38 & 29.15 & 4.71 & 42.18 & 69.85 \\
+\texttt{condA} (MLP, Frozen) & 43.94$\pm$0.48 & 4.84$\pm$0.09 & 30.05$\pm$0.32 & 4.95$\pm$0.23 & 43.77$\pm$2.22 & 70.74$\pm$3.13 \\
+\texttt{condB} (Res., Frozen) & \textbf{45.58$\pm$0.85} & 5.55$\pm$0.66 & \textbf{30.85$\pm$0.25} & 5.65$\pm$0.21 & 42.04$\pm$2.98 & 68.51$\pm$2.80 \\
+\texttt{condC} (MLP, LoRA) & 43.41$\pm$0.88 & 5.60$\pm$0.48 & 30.31$\pm$0.35 & 5.73$\pm$0.51 & \textbf{44.48$\pm$2.37} & \textbf{72.03$\pm$2.44} \\
+\texttt{condD} (Res., LoRA) & 44.52$\pm$0.68 & \textbf{5.91$\pm$0.18} & 30.27$\pm$0.21 & \textbf{5.91$\pm$0.10} & 43.41$\pm$2.14 & 71.45$\pm$2.21 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{Training and Inference Efficiency}
+As shown in Table~\ref{tab:efficiency}, compressing the visual prefix from 49 to 16 tokens reduces peak training VRAM by $\sim$25\% ($4.81\text{ GB}$ vs. $6.43\text{ GB}$ frozen; $4.98\text{ GB}$ vs. $6.70\text{ GB}$ LoRA) and speeds up training epochs by $\sim$35\%. Clean T4 inference latency for \texttt{condB}/\texttt{condD} ($\sim$201--235 ms/img, $\sim$49--65 tok/s) is also faster than \texttt{condA}/\texttt{condC} ($\sim$310--354 ms/img).
+
+\begin{table}[t]
+\centering
+\caption{Efficiency Metrics on Tesla T4 GPU}
+\label{tab:efficiency}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Condition} & \textbf{Prefix} & \textbf{Trainable Params} & \textbf{Peak VRAM (MB)} & \textbf{Avg Epoch (s)} \\
+\midrule
+Baseline & 1 & 393,984 & 4,018.5 & 95.0 \\
+\texttt{condA} & 49 & 1,181,184 & 6,427.5 & 177.4 \\
+\texttt{condB} & 16 & 992,768 & 4,809.7 & 114.0 \\
+\texttt{condC} & 49 & 1,476,096 & 6,703.1 & 192.1 \\
+\texttt{condD} & 16 & 1,287,680 & 4,981.3 & 120.9 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{Object-Mention Proxy (ROME) and Occlusion Fidelity}
+Because Flickr8k lacks COCO object annotations, we compute a Reference-Grounded Object-Mention Error (ROME) proxy against the union of 5 references using POS tagging, lemmatization, and WordNet synonyms. On \texttt{beam5}, \texttt{condA} exhibits the lowest reference-disagreement rate ($\text{ROME}_i = 42.53 \pm 4.55\%$, $\text{ROME}_s = 69.77 \pm 3.75\%$), compared to \texttt{condB} ($47.15\% / 75.63\%$), \texttt{condC} ($44.76\% / 73.23\%$), and \texttt{condD} ($43.71\% / 73.20\%$).
+
+To test diagnostic fidelity on the 100-image audit subset, we mask the top-10, bottom-10, and 10 random patches and measure $\Delta \log p(w)$ of the first generated token. Across all tested models, masking top-ranked patches causes a larger probability drop than low-ranked or random controls (\texttt{condA}: $5.92$ vs. $0.52$ low / $2.15$ random; \texttt{condB}: $0.055$ vs. $0.036$ / $0.013$; \texttt{condD}: $0.053$ vs. $0.043$ / $0.023$).
+
+\section{Conclusion}
+In a controlled, zero-budget Flickr8k setting, a lightweight 16-token Query Resampler paired with LoRA adaptation (\texttt{condD}) achieves the best CIDEr ($5.91$) and BLEU-4 ($5.91$) while reducing peak VRAM by $\sim$25\% and training time by $\sim$35\% compared to a 49-token Patch MLP. All code, notebooks, and blinded human-audit tools are released at \url{https://github.com/Uyhuynh23/Group13_CV}.
+
+\begin{thebibliography}{9}
+\bibitem{hodosh2013framing} M. Hodosh, P. Young, and J. Hockenmaier, ``Framing image description as a ranking task: Data, models and evaluation metrics,'' \textit{JAIR}, vol. 47, pp. 853--899, 2013.
+\bibitem{radford2021learning} A. Radford et al., ``Learning transferable visual models from natural language supervision,'' in \textit{ICML}, 2021, pp. 8748--8763.
+\bibitem{radford2019language} A. Radford et al., ``Language models are unsupervised multitask learners,'' OpenAI Technical Report, 2019.
+\bibitem{liu2024improved} H. Liu et al., ``Improved baselines with visual instruction tuning,'' in \textit{CVPR}, 2024, pp. 26296--26306.
+\bibitem{li2023blip2} J. Li et al., ``BLIP-2: Bootstrapping language-image pre-training with frozen image encoders and large language models,'' in \textit{ICML}, 2023, pp. 19730--19742.
+\bibitem{hu2022lora} E. J. Hu et al., ``LoRA: Low-rank adaptation of large language models,'' in \textit{ICLR}, 2022.
+\bibitem{vedantam2015cider} R. Vedantam, C. L. Zitnick, and D. Parikh, ``CIDEr: Consensus-based image description evaluation,'' in \textit{CVPR}, 2015, pp. 4566--4575.
+\bibitem{hessel2021clipscore} J. Hessel et al., ``CLIPScore: A reference-free evaluation metric for image captioning,'' in \textit{EMNLP}, 2021, pp. 7514--7528.
+\end{thebibliography}
+
+\end{document}
